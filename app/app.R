@@ -67,7 +67,7 @@ querychat_config <- querychat_init(
 
 ui <- page_sidebar(
   title = "John Deere Product Line Analytics",
-  theme = bs_theme(brand = "brand.yml"),
+  theme = bs_theme(brand = "_brand.yml"),
   sidebar = querychat_sidebar("chat", width = 450),
   tags$head(
     tags$style(HTML("
