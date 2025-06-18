@@ -1,0 +1,18 @@
+Welcome to the John Deere Product Line Analytics Dashboard! 
+
+I can help you analyze performance metrics and market intelligence across our product portfolio. Here are some example queries you can try:
+
+**Product Performance:**
+* <span class="suggestion">Which product lines have the highest uptime?</span>
+* <span class="suggestion">Compare fuel efficiency across tractor series</span>
+
+**Market Intelligence:**
+* <span class="suggestion">Show market share by product category</span>
+* <span class="suggestion">Which products have declining satisfaction trends?</span>
+* <span class="suggestion">Compare revenue per unit across combines</span>
+
+**Strategic Insights:**
+* <span class="suggestion">How does product age affect performance metrics?</span>
+* <span class="suggestion">Show newest product lines with highest error rates</span>
+
+Ask me anything about our product line performance and market positioning!

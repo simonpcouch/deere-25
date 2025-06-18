@@ -1,0 +1,30 @@
+John Deere Equipment Analytics Database
+
+This dataset contains individual machine records with product line attributes for strategic analysis 
+across North American markets. The data includes:
+
+**Equipment Information:**
+- equipment_id: Unique machine identifier
+- model_series: Product line (S700 Series, 8R Series, etc.)
+- specific_model: Exact model within the series
+- category: Equipment category (Combine, Tractor, Track Tractor)
+- year_manufactured: Year the machine was manufactured
+- intro_year: Year the product line was introduced
+
+**Customer & Business:**
+- customer_id: Customer identifier
+- dealer_id: Selling/servicing dealer
+- purchase_price_k: Purchase price in thousands USD
+- customer_satisfaction: Customer satisfaction rating (1-5 scale)
+
+**Location:**
+- region: Geographic region (Midwest, Great Plains, etc.)
+- state: US state
+- county: County location
+- latitude: Machine latitude coordinate
+- longitude: Machine longitude coordinate
+
+**Performance Metrics:**
+- annual_hours: Typical annual operating hours
+- total_hours: Cumulative operating hours
+- fuel_efficiency: Fuel efficiency in miles per gallon

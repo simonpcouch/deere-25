@@ -1,0 +1,92 @@
+meta:
+  name:
+    short: John Deere
+    full: Deere & Company
+  link:
+    home: https://www.deere.com
+
+color:
+  palette:
+    # Official John Deere brand colors
+    john-deere-green: "#367C2B"
+    john-deere-yellow: "#FFDE00"
+    black: "#000000"
+    white: "#FFFFFF"
+    # Additional neutral colors for web/digital use
+    dark-gray: "#333333"
+    medium-gray: "#666666"
+    light-gray: "#F5F5F5"
+  
+  foreground: "#000000"
+  background: "#FFFFFF"
+  primary: "#367C2B"
+  secondary: "#FFDE00"
+  success: "#367C2B"
+  warning: "#FFDE00"
+  danger: "#CC0000"
+  light: "#F5F5F5"
+  dark: "#333333"
+
+typography:
+  fonts:
+    - family: Libre Franklin # Best Google Fonts alternative to Trade Gothic
+      source: google
+      weight: [400, 500, 600, 700, 800]
+      style: [normal, italic]
+    - family: Work Sans # Alternative with similar grotesque characteristics
+      source: google
+      weight: [400, 500, 600, 700, 800]
+      style: [normal, italic]
+    - family: Inter # Modern screen-optimized alternative
+      source: google
+      weight: [400, 500, 600, 700, 800]
+      style: [normal, italic]
+    - family: Source Sans Pro # Fallback option
+      source: google
+      weight: [400, 600, 700]
+      style: [normal, italic]
+
+  base:
+    family: Libre Franklin
+    weight: 400
+    size: 16px
+    line-height: 1.5
+
+  headings:
+    family: Work Sans
+    weight: 700
+    line-height: 1.2
+    color: "#333333"
+
+  monospace:
+    family: Source Code Pro
+    source: google
+    weight: 400
+    size: 0.9em
+
+  link:
+    color: "#367C2B"
+    weight: 500
+    decoration: underline
+
+defaults:
+  bootstrap:
+    defaults:
+      primary: "#367C2B"
+      warning: "#FFDE00"
+      dark: "#333333"
+    rules: |
+      .btn-primary {
+        background-color: #367C2B;
+        border-color: #367C2B;
+        font-family: 'Work Sans', Arial, sans-serif;
+        font-weight: 600;
+      }
+      .btn-primary:hover {
+        background-color: #2d6623;
+        border-color: #2d6623;
+      }
+      .navbar-brand {
+        font-family: 'Work Sans', Arial, sans-serif;
+        font-weight: 700;
+      }

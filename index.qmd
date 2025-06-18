@@ -1,0 +1,288 @@
+---
+title: ""
+format: 
+  revealjs:
+    theme: [default, custom.scss]
+    footer: '<span style="color:#aa5b31;">github.com/simonpcouch/deere-25</span>'
+editor: source
+knitr:
+  opts_chunk: 
+    echo: true
+    collapse: true
+    comment: "#>"
+---
+
+## Building with LLMs in R and Python
+
+<a href="https://github.com/simonpcouch/deere-25"><img src="figures/wall.png" align="right" height="350" alt="Hex wall" /></a>
+
+<br><br><br><br><br><br><br>
+_Simon Couch_ - Posit, PBC
+
+Open Source Group, R / LLMs
+
+
+```{r}
+#| message: false
+#| warning: false
+#| eval: false
+#| include: false
+remotes::install_github("luisdva/hexsession")
+library(hexsession)
+library(acquaint)
+library(btw)
+library(chores)
+library(ellmer)
+library(gander)
+library(vitals)
+library(hexsession)
+```
+
+# Part 0: geoguessr
+
+## Part 0: geoguessr
+
+What Deere property was this picture taken on?
+
+![](figures/geoguessr/hw.png){fig-align="center"}
+
+. . . 
+
+John Deere Harvester Works - East Moline, IL
+
+# Where we're headed
+
+## Where we're headed
+
+![](figures/app.gif){fig-align="center"}
+
+## Where we're headed
+
+To get there:
+
+:::incremental
+* Chatting via code
+* Creating chat apps
+* Branding chat apps
+* Giving chat apps tools
+* Integrating chat into Shiny apps
+:::
+
+# Part 1: Chatting via code
+
+## Part 1: Chatting via code
+
+Meet ellmer! <a href="https://ellmer.tidyverse.org"><img src="figures/hexes/ellmer.png" align="right" height="400" alt="ellmer website" /></a>
+
+<br>
+
+. . .
+
+::: columns
+::: {.column width="50%"}
+```{r}
+#| eval: false
+install.packages("ellmer")
+```
+:::
+::: {.column width="50%"}
+:::
+:::
+
+## Part 1: Chatting via code
+
+These are the same:
+
+::: columns
+::: {.column width="50%"}
+![](figures/chats/hello.png){fig-align="center"}
+:::
+
+::: {.column width="50%"}
+<br>
+```{r}
+#| eval: false
+library(ellmer)
+
+ch <- chat_openai(
+  model = "gpt-4o"
+)
+
+ch$chat("hey!")
+#> "Hey there!😊 What can I 
+#>  help you with today?"
+```
+
+:::
+:::
+
+<!--
+Interactively:
+* Chat a couple times
+-->
+
+## Part 1: Chatting via code
+
+Using LLMs via ellmer means:
+
+:::incremental
+* Programmatic usage -> easier automation
+* Easily switch between models and providers
+* Access to API-only features like system prompts and arbitrary tools
+:::
+
+# Part 2: A chat app
+
+## Part 2: A chat app
+
+```{r}
+#| eval: false
+live_browser(ch)
+```
+
+![](figures/chats/basic.png){fig-align="center"}
+
+# Part 3: A chat app, but branded
+
+## Part 3: A chat app, but branded
+
+![](figures/brand-yml.svg){fig-align="center" height="400"}
+
+## Part 3: A chat app, but branded
+
+```{r}
+#| eval: false
+live_browser(ch)
+```
+
+![](figures/chats/branded.png){fig-align="center"}
+
+## Part 3: A chat app, but branded {.scrollable}
+
+My `brand.yml` file:
+
+::: {style="max-height: 300px; overflow-y: auto;"}
+```{.yaml}
+{{< include app/_brand.yml >}}
+```
+:::
+<br>
+
+. . .
+
+Yall might have a proper one already!
+
+## Part 3: A chat app, but branded {.scrollable}
+
+
+![](figures/chats/claude-brand.png){fig-align="center"}
+
+::: footer
+https://claude.ai/share/be28cb59-9d7a-4e6a-aff2-c83462d842e5
+:::
+
+# Part 4: A chat, but handy🔧
+
+## Part 4: A chat, but handy🔧
+
+ellmer and chatlas support _tool calling_, which allows LLMs to interact with other systems.
+
+. . .
+
+In our example: run SQL queries against a database
+
+## Part 4: A chat, but handy🔧
+
+First, write a function that runs a query against a connection:
+
+```r
+library(DBI)
+
+query_data <- function(query) {
+  stopifnot(startsWith(tolower(query), "select"))
+  dbGetQuery(conn, query)
+}
+```
+
+## Part 4: A chat, but handy🔧
+
+Then, configure that function with your ellmer chat:
+
+```r
+ch$register_tool(tool(
+  query_data,
+  "Perform a SQL SELECT query on the `equipment_data` data.",
+  query = type_string("A valid SQL SELECT statement to run on the mtcars table.")
+))
+```
+
+## Part 4: A chat, but handy🔧
+
+Make the database connection and launch the chat app:
+
+```{r}
+#| eval: false
+library(duckdb)
+
+conn <- dbConnect(duckdb(), dbdir = ":memory:")
+dbWriteTable(conn, "equipment_data", equipment_data, overwrite = TRUE)
+
+live_browser(ch)
+```
+
+## Part 4: A chat, but handy🔧
+
+{{< video figures/chat-app.mov >}}
+
+<!---
+## Part 4: A chat, but handy🔧
+
+An aside: the btw package supplies a number of tools for common data science tasks.
+
+```{r}
+#| eval: false
+ch$set_tools(btw::btw_tools())
+```
+
+. . .
+
+This chat can:
+
+* Peruse R package documentation
+* Look at objects in your R environment
+* Read files in your working directory
+
+-->
+
+# Putting it all together
+
+## Putting it all together
+
+![](figures/app.gif){fig-align="center"}
+
+## Putting it all together
+
+Choose tools that help you _get stuff done_.
+
+:::incremental
+* Software should help you take advantage of LLMs to adopt it
+     - Code-first
+     - Good plain text documentation
+* The final product doesn't necessarily need to use an LLM
+     - Charging for LLM usage creates incentives to integrate LLMs where deterministic software would do the trick
+     - LLMs are good at writing software!
+:::
+
+## Learn more
+
+<br>
+
+<span style="font-size:130%">
+
+<center>[github.com/simonpcouch/deere-25]{style="color:#c46938;"}</center>
+
+</span>
+
+<br>
+
+<a href="github.com/simonpcouch/deere-25"><img src="figures/wall.png" align="right" height="350" alt="Hex wall" /></a>

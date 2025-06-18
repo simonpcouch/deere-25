@@ -1,0 +1,33 @@
+Package: deere-25
+Title: John Deere Product Line Analytics Application
+Version: 0.0.1.
+Description: A demo Shiny chat application.
+Authors@R: person("Simon", "Couch", email = "simon.couch@posit.co", role = c("aut", "cre"))
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R (>= 4.0.0)
+Imports:
+    shiny,
+    bslib,
+    querychat,
+    DT,
+    dplyr,
+    lubridate,
+    leaflet,
+    shinydashboard,
+    shinychat,
+    stringr,
+    DBI,
+    duckdb,
+    ellmer,
+    btw,
+    rsconnect
+Suggests:
+    pak
+Remotes:
+    posit-dev/btw,
+    posit-dev/querychat/pkg-r
+URL: https://github.com/simonpcouch/deere25
+BugReports: https://github.com/simonpcouch/deere25/issues

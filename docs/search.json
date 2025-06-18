@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "index.html#building-with-llms-in-r-and-python",
+    "href": "index.html#building-with-llms-in-r-and-python",
+    "title": "",
+    "section": "Building with LLMs in R and Python",
+    "text": "Building with LLMs in R and Python\n\n Simon Couch - Posit, PBC\nOpen Source Group, R / LLMs"
+  },
+  {
+    "objectID": "index.html#part-0-geoguessr-1",
+    "href": "index.html#part-0-geoguessr-1",
+    "title": "",
+    "section": "Part 0: geoguessr",
+    "text": "Part 0: geoguessr\nWhat Deere property was this picture taken on?\n\n\nJohn Deere Harvester Works - East Moline, IL"
+  },
+  {
+    "objectID": "index.html#where-were-headed-1",
+    "href": "index.html#where-were-headed-1",
+    "title": "",
+    "section": "Where we’re headed",
+    "text": "Where we’re headed"
+  },
+  {
+    "objectID": "index.html#where-were-headed-2",
+    "href": "index.html#where-were-headed-2",
+    "title": "",
+    "section": "Where we’re headed",
+    "text": "Where we’re headed\nTo get there:\n\n\nChatting via code\nCreating chat apps\nBranding chat apps\nGiving chat apps tools\nIntegrating chat into Shiny apps"
+  },
+  {
+    "objectID": "index.html#part-1-chatting-via-code-1",
+    "href": "index.html#part-1-chatting-via-code-1",
+    "title": "",
+    "section": "Part 1: Chatting via code",
+    "text": "Part 1: Chatting via code\nMeet ellmer! \n\n\n\n\n\ninstall.packages(\"ellmer\")"
+  },
+  {
+    "objectID": "index.html#part-1-chatting-via-code-2",
+    "href": "index.html#part-1-chatting-via-code-2",
+    "title": "",
+    "section": "Part 1: Chatting via code",
+    "text": "Part 1: Chatting via code\nThese are the same:\n\n\n\n\n\n\n\n\n\n\nlibrary(ellmer)\n\nch &lt;- chat_openai(\n  model = \"gpt-4o\"\n)\n\nch$chat(\"hey!\")\n#&gt; \"Hey there!😊 What can I \n#&gt;  help you with today?\""
+  },
+  {
+    "objectID": "index.html#part-1-chatting-via-code-3",
+    "href": "index.html#part-1-chatting-via-code-3",
+    "title": "",
+    "section": "Part 1: Chatting via code",
+    "text": "Part 1: Chatting via code\nUsing LLMs via ellmer means:\n\n\nProgrammatic usage -&gt; easier automation\nEasily switch between models and providers\nAccess to API-only features like system prompts and arbitrary tools"
+  },
+  {
+    "objectID": "index.html#part-2-a-chat-app-1",
+    "href": "index.html#part-2-a-chat-app-1",
+    "title": "",
+    "section": "Part 2: A chat app",
+    "text": "Part 2: A chat app\n\nlive_browser(ch)"
+  },
+  {
+    "objectID": "index.html#part-3-a-chat-app-but-branded-1",
+    "href": "index.html#part-3-a-chat-app-but-branded-1",
+    "title": "",
+    "section": "Part 3: A chat app, but branded",
+    "text": "Part 3: A chat app, but branded"
+  },
+  {
+    "objectID": "index.html#part-3-a-chat-app-but-branded-2",
+    "href": "index.html#part-3-a-chat-app-but-branded-2",
+    "title": "",
+    "section": "Part 3: A chat app, but branded",
+    "text": "Part 3: A chat app, but branded\n\nlive_browser(ch)"
+  },
+  {
+    "objectID": "index.html#part-3-a-chat-app-but-branded-3",
+    "href": "index.html#part-3-a-chat-app-but-branded-3",
+    "title": "",
+    "section": "Part 3: A chat app, but branded",
+    "text": "Part 3: A chat app, but branded\nMy brand.yml file:\n\nmeta:\n  name:\n    short: John Deere\n    full: Deere & Company\n  link:\n    home: https://www.deere.com\n\ncolor:\n  palette:\n    # Official John Deere brand colors\n    john-deere-green: \"#367C2B\"\n    john-deere-yellow: \"#FFDE00\"\n    black: \"#000000\"\n    white: \"#FFFFFF\"\n    # Additional neutral colors for web/digital use\n    dark-gray: \"#333333\"\n    medium-gray: \"#666666\"\n    light-gray: \"#F5F5F5\"\n  \n  foreground: \"#000000\"\n  background: \"#FFFFFF\"\n  primary: \"#367C2B\"\n  secondary: \"#FFDE00\"\n  success: \"#367C2B\"\n  warning: \"#FFDE00\"\n  danger: \"#CC0000\"\n  light: \"#F5F5F5\"\n  dark: \"#333333\"\n\ntypography:\n  fonts:\n    - family: Libre Franklin # Best Google Fonts alternative to Trade Gothic\n      source: google\n      weight: [400, 500, 600, 700, 800]\n      style: [normal, italic]\n    - family: Work Sans # Alternative with similar grotesque characteristics\n      source: google\n      weight: [400, 500, 600, 700, 800]\n      style: [normal, italic]\n    - family: Inter # Modern screen-optimized alternative\n      source: google\n      weight: [400, 500, 600, 700, 800]\n      style: [normal, italic]\n    - family: Source Sans Pro # Fallback option\n      source: google\n      weight: [400, 600, 700]\n      style: [normal, italic]\n\n  base:\n    family: Libre Franklin\n    weight: 400\n    size: 16px\n    line-height: 1.5\n\n  headings:\n    family: Work Sans\n    weight: 700\n    line-height: 1.2\n    color: \"#333333\"\n\n  monospace:\n    family: Source Code Pro\n    source: google\n    weight: 400\n    size: 0.9em\n\n  link:\n    color: \"#367C2B\"\n    weight: 500\n    decoration: underline\n\ndefaults:\n  bootstrap:\n    defaults:\n      primary: \"#367C2B\"\n      warning: \"#FFDE00\"\n      dark: \"#333333\"\n    rules: |\n      .btn-primary {\n        background-color: #367C2B;\n        border-color: #367C2B;\n        font-family: 'Work Sans', Arial, sans-serif;\n        font-weight: 600;\n      }\n      .btn-primary:hover {\n        background-color: #2d6623;\n        border-color: #2d6623;\n      }\n      .navbar-brand {\n        font-family: 'Work Sans', Arial, sans-serif;\n        font-weight: 700;\n      }\n\n\n\nYall might have a proper one already!"
+  },
+  {
+    "objectID": "index.html#part-3-a-chat-app-but-branded-4",
+    "href": "index.html#part-3-a-chat-app-but-branded-4",
+    "title": "",
+    "section": "Part 3: A chat app, but branded",
+    "text": "Part 3: A chat app, but branded\n\n\nhttps://claude.ai/share/be28cb59-9d7a-4e6a-aff2-c83462d842e5"
+  },
+  {
+    "objectID": "index.html#part-4-a-chat-but-handy-1",
+    "href": "index.html#part-4-a-chat-but-handy-1",
+    "title": "",
+    "section": "Part 4: A chat, but handy🔧",
+    "text": "Part 4: A chat, but handy🔧\nellmer and chatlas support tool calling, which allows LLMs to interact with other systems.\n\nIn our example: run SQL queries against a database"
+  },
+  {
+    "objectID": "index.html#part-4-a-chat-but-handy-2",
+    "href": "index.html#part-4-a-chat-but-handy-2",
+    "title": "",
+    "section": "Part 4: A chat, but handy🔧",
+    "text": "Part 4: A chat, but handy🔧\nFirst, write a function that runs a query against a connection:\nlibrary(DBI)\n\nquery_data &lt;- function(query) {\n  stopifnot(startsWith(tolower(query), \"select\"))\n  dbGetQuery(conn, query)\n}"
+  },
+  {
+    "objectID": "index.html#part-4-a-chat-but-handy-3",
+    "href": "index.html#part-4-a-chat-but-handy-3",
+    "title": "",
+    "section": "Part 4: A chat, but handy🔧",
+    "text": "Part 4: A chat, but handy🔧\nThen, configure that function with your ellmer chat:\nch$register_tool(tool(\n  query_data,\n  \"Perform a SQL SELECT query on the `equipment_data` data.\",\n  query = type_string(\"A valid SQL SELECT statement to run on the mtcars table.\")\n))"
+  },
+  {
+    "objectID": "index.html#part-4-a-chat-but-handy-4",
+    "href": "index.html#part-4-a-chat-but-handy-4",
+    "title": "",
+    "section": "Part 4: A chat, but handy🔧",
+    "text": "Part 4: A chat, but handy🔧\nMake the database connection and launch the chat app:\n\nlibrary(duckdb)\n\nconn &lt;- dbConnect(duckdb(), dbdir = \":memory:\")\ndbWriteTable(conn, \"equipment_data\", equipment_data, overwrite = TRUE)\n\nlive_browser(ch)"
+  },
+  {
+    "objectID": "index.html#part-4-a-chat-but-handy-5",
+    "href": "index.html#part-4-a-chat-but-handy-5",
+    "title": "",
+    "section": "Part 4: A chat, but handy🔧",
+    "text": "Part 4: A chat, but handy🔧"
+  },
+  {
+    "objectID": "index.html#putting-it-all-together-1",
+    "href": "index.html#putting-it-all-together-1",
+    "title": "",
+    "section": "Putting it all together",
+    "text": "Putting it all together"
+  },
+  {
+    "objectID": "index.html#putting-it-all-together-2",
+    "href": "index.html#putting-it-all-together-2",
+    "title": "",
+    "section": "Putting it all together",
+    "text": "Putting it all together\nChoose tools that help you get stuff done.\n\n\nSoftware should help you take advantage of LLMs to adopt it\n\nCode-first\nGood plain text documentation\n\nThe final product doesn’t necessarily need to use an LLM\n\nCharging for LLM usage creates incentives to integrate LLMs where deterministic software would do the trick\nLLMs are good at writing software!"
+  },
+  {
+    "objectID": "index.html#learn-more",
+    "href": "index.html#learn-more",
+    "title": "",
+    "section": "Learn more",
+    "text": "Learn more\n\n\n\ngithub.com/simonpcouch/deere-25"
+  }
+]
