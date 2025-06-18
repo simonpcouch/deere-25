@@ -1,4 +1,4 @@
-Package: deere-25
+Package: deere25
 Title: John Deere Product Line Analytics Application
 Version: 0.0.1.
 Description: A demo Shiny chat application.
